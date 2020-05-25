@@ -2,37 +2,38 @@
 const nextBtn = document.getElementById("nextM");
 const previousBtn = document.getElementById("previousM");
 const monthText = document.getElementById("monthName");
+const yearText = document.getElementById("yearName");
 const currentBtn = document.getElementById("currentM");
 
 // functions to switch between months
 function NextMonth() {
     currentMonthDate += 1;
-    if (currentMonthDate == -1) {
-        currentMonthDate = 11;
-    }
     if (currentMonthDate == 12) {
         currentMonthDate = 0;
+        currentYearName += 1;
     }
     currentMonthName = month[currentMonthDate];
     monthText.innerText = currentMonthName + "\n";
+    yearText.innerText = currentYearName;
 }
 
 function PreviousMonth() {
     currentMonthDate -= 1;
     if (currentMonthDate == -1) {
         currentMonthDate = 11;
-    }
-    if (currentMonthDate == 12) {
-        currentMonthDate = 0;
+        currentYearName -= 1;
     }
     currentMonthName = month[currentMonthDate];
     monthText.innerText = currentMonthName + "\n";
+    yearText.innerText = currentYearName;
 }
 
 
 function CurrentMonth() {
-    var currentMonthName = month[date.getUTCMonth()];
-    monthText.innerText = currentMonthName + "\n"
+    currentMonthName = month[date.getUTCMonth()];
+    currentYearName = date.getUTCFullYear();
+    monthText.innerText = currentMonthName + "\n";
+    yearText.innerText = currentYearName;
 }
 
 // set names for months
@@ -51,6 +52,10 @@ month[8] = "September";
 month[9] = "October";
 month[10] = "November";
 month[11] = "December";
+currentMonthName = month[date.getUTCMonth()];
+currentYearName = date.getUTCFullYear();
+monthText.innerText = currentMonthName + "\n";
+yearText.innerText = currentYearName;
 
 // if clicked do something ... 
 if (currentBtn) {
