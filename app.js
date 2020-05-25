@@ -6,7 +6,14 @@ const yearText = document.getElementById("year");
 const currentBtn = document.getElementById("currentM");
 
 // functions
-
+function checkForLeap() {
+    if (currentYearName % 4 == 0) {
+        month[1] = ["February", 29];
+    }
+    else {
+        month[1] = ["February", 28];
+    }
+}
 //since every month has a diffrent length we have to clear the rest of remaining dates on html text
 function clearDates() {
     needToGetCleared.forEach(element => {
@@ -14,6 +21,7 @@ function clearDates() {
         daysText.innerText = '';
     });
 }
+
 function NextMonth() {
     currentMonthDate += 1;
     if (currentMonthDate == 12) {
@@ -21,6 +29,7 @@ function NextMonth() {
         currentYearName += 1;
     }
     currentMonthName = month[currentMonthDate][0];
+    checkForLeap()
     currentMonthDays = month[currentMonthDate][1];
     clearDates();
     for (let i = 1; i <= currentMonthDays; i++) {
@@ -41,6 +50,7 @@ function PreviousMonth() {
         currentYearName -= 1;
     }
     currentMonthName = month[currentMonthDate][0];
+    checkForLeap()
     currentMonthDays = month[currentMonthDate][1];
     clearDates();
     for (let i = 1; i <= currentMonthDays; i++) {
@@ -54,12 +64,12 @@ function PreviousMonth() {
     yearText.innerText = currentYearName;
 }
 
-
 function CurrentMonth() {
     clearDates();
     currentMonthName = month[date.getUTCMonth()][0];
     currentMonthDate = date.getUTCMonth();
     currentYearName = date.getUTCFullYear();
+    checkForLeap()
     monthText.innerText = currentMonthName + "\n";
     yearText.innerText = currentYearName;
     currentMonthDays = month[date.getUTCMonth()][1];
@@ -103,6 +113,7 @@ const needToGetCleared = [29, 30, 31];
 // seting defualt text in index.html
 currentMonthName = month[date.getUTCMonth()][0];
 currentYearName = date.getUTCFullYear();
+checkForLeap()
 currentMonthDays = month[date.getUTCMonth()][1];
 for (let i = 1; i <= currentMonthDays; i++) {
     var daysText = document.getElementById(i);
