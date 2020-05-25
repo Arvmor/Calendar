@@ -1,4 +1,4 @@
-# Calender
+# Calendar
  📅with JS
  
  # ToDo
