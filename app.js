@@ -69,6 +69,13 @@ function currentMonth() {
     printDaysInTable()
 }
 
+function getMonthF() {
+    return currentMonthDate
+}
+
+function getYearF() {
+    return currentYearName
+}
 // set names for months and days
 var date = new Date()
 const month = new Array(12);
