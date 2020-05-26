@@ -44,32 +44,24 @@ function previousMonth() {
     showMonth();
 }
 
-function showMonth(day=1){
-    yearText.innerText = currentYearName;
-    monthText.innerText = month[currentMonthDate][0];
-    clearDates();
-    var dayamount = [currentMonthDate][1];
-    var startday = getDayInWeek(1, currentMonthDate, currentYearName);
-    for (let t = 1; t <= dayamount; t++) {
-        daybtn = document.getElementById(t + startday);
-        daybtn.innerText = t;
-    }
-    document.getElementById(day + startday).className = "selected";
-}
-
 function currentMonth() {
     currentMonthName = month[date.getUTCMonth()][0];
     currentMonthDate = date.getUTCMonth();
     currentYearName = date.getUTCFullYear();
     showMonth();
 }
-
-function getMonthF() {
-    return currentMonthDate;
-}
-
-function getYearF() {
-    return currentYearName
+// InterFace function
+function showMonth(day=1){
+    yearText.innerText = currentYearName;
+    monthText.innerText = month[currentMonthDate][0];
+    clearDates();
+    var dayamount = month[currentMonthDate][1];
+    var startday = getDayInWeek(1, currentMonthDate, currentYearName);
+    for (let t = 1; t <= dayamount; t++) {
+        daybtn = document.getElementById(t + startday);
+        daybtn.innerText = t;
+    }
+    document.getElementById(day + startday).className = "selected";
 }
 
 // set names for months and days
