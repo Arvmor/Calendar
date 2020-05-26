@@ -4,17 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css"/>
     <title>Calendar</title>
 </head>
 
 <body>
-    <div>
-        <p id="year"></p>
-    </div>
-    <div>
-        <p id="month"></p>
-    </div>
-    <div>
+    <div class="tablediv">
+        <div>
+            <p id="year"></p>
+        </div>
+        <div>
+            <p id="month"></p>
+        </div>
         <table>
             <thead>
                 <tr>
@@ -84,10 +85,10 @@
                 </tr>
             </tbody>
         </table>
+        <button id="previousM">Previous</button>
+        <button id="currentM">Current</button>
+        <button id="nextM">Next</button>
     </div>
-    <button id="previousM">Previous</button>
-    <button id="currentM">Current</button>
-    <button id="nextM">Next</button>
     <script src="app.js"></script>
     <script src="interface.js"></script>
 </body>
