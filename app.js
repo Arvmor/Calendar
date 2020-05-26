@@ -22,6 +22,12 @@ function clearDates() {
     });
 }
 
+function getDaInWeek(date, month, year) {
+    var wDay = new Date(month, year, date)
+    var result = String(wDay).slice(0, 3);
+    return result
+}
+
 function NextMonth() {
     currentMonthDate += 1;
     if (currentMonthDate == 12) {
@@ -34,9 +40,9 @@ function NextMonth() {
     clearDates();
     for (let i = 1; i <= currentMonthDays; i++) {
         daysText = document.getElementById(i);
-        daysText.innerText = i;
+        daysText.innerText = i + getDaInWeek(i, currentMonthDate, currentYearName);
         if (i == currentMonthDays) {
-            daysText.innerText = i + '\n';
+            daysText.innerText = i + getDaInWeek(i, currentMonthDate, currentYearName) + '\n';
         }
     };
     monthText.innerText = currentMonthName + "\n";
@@ -100,30 +106,19 @@ month[10] = ["November", 30];
 month[11] = ["December", 31];
 
 const days = Array(7);
-days[0] = ['Sunday'];
-days[1] = ['Monday'];
-days[2] = ['Tuesday'];
-days[3] = ['Wednesday'];
-days[4] = ['Thursday'];
-days[5] = ['Friday'];
-days[6] = ['Saturday'];
+days[0] = ['Sunday', 'Sun'];
+days[1] = ['Monday', 'Mon'];
+days[2] = ['Tuesday', 'Tue'];
+days[3] = ['Wednesday', 'Wed'];
+days[4] = ['Thursday', 'Thu'];
+days[5] = ['Friday', 'Fri'];
+days[6] = ['Saturday', 'Sat'];
 
 const needToGetCleared = [29, 30, 31];
 
 // seting defualt text in index.html
-currentMonthName = month[date.getUTCMonth()][0];
-currentYearName = date.getUTCFullYear();
-checkForLeap()
-currentMonthDays = month[date.getUTCMonth()][1];
-for (let i = 1; i <= currentMonthDays; i++) {
-    var daysText = document.getElementById(i);
-    daysText.innerText = i;
-    if (i == currentMonthDays) {
-        daysText.innerText = i + '\n';
-    }
-};
-monthText.innerText = currentMonthName + "\n";
-yearText.innerText = currentYearName;
+CurrentMonth();
+
 // if clicked do something ... 
 if (currentBtn) {
     currentBtn.addEventListener("click", CurrentMonth);
