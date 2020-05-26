@@ -16,16 +16,32 @@ function checkForLeap() {
 }
 //since every month has a diffrent length we have to clear the rest of remaining dates on html text
 function clearDates() {
-    needToGetCleared.forEach(element => {
-        daysText = document.getElementById(element);
+    for (let j = 1; j < 42; j++) {
+        daysText = document.getElementById(j);
         daysText.innerText = '';
-    });
+    }
 }
 
 function getDayInWeek(date, month, year) {
-    var wDay = new Date(year, month, date);
-    var result = String(wDay).slice(0, 3);
-    return result
+    wDay = new Date(year, month, date).getDay();
+    return wDay
+}
+
+function printDaysInTable() {
+    currentMonthName = month[currentMonthDate][0];
+    checkForLeap()
+    currentMonthDays = month[currentMonthDate][1];
+    clearDates();
+    getDayInWeek(1, currentMonthDate, currentYearName);
+    for (let i = 1; i <= currentMonthDays; i++) {
+        daysText = document.getElementById(i + wDay + 1);
+        daysText.innerText = i;
+        if (i == currentMonthDays) {
+            daysText.innerText = i + '\n';
+        }
+    };
+    monthText.innerText = currentMonthName + "\n";
+    yearText.innerText = currentYearName;
 }
 
 function nextMonth() {
@@ -34,19 +50,7 @@ function nextMonth() {
         currentMonthDate = 0;
         currentYearName += 1;
     }
-    currentMonthName = month[currentMonthDate][0];
-    checkForLeap()
-    currentMonthDays = month[currentMonthDate][1];
-    clearDates();
-    for (let i = 1; i <= currentMonthDays; i++) {
-        daysText = document.getElementById(i);
-        daysText.innerText = i;
-        if (i == currentMonthDays) {
-            daysText.innerText = i + '\n';
-        }
-    };
-    monthText.innerText = currentMonthName + "\n";
-    yearText.innerText = currentYearName;
+    printDaysInTable()
 }
 
 function previousMonth() {
@@ -55,39 +59,23 @@ function previousMonth() {
         currentMonthDate = 11;
         currentYearName -= 1;
     }
-    currentMonthName = month[currentMonthDate][0];
-    checkForLeap()
-    currentMonthDays = month[currentMonthDate][1];
-    clearDates();
-    for (let i = 1; i <= currentMonthDays; i++) {
-        daysText = document.getElementById(i);
-        daysText.innerText = i;
-        if (i == currentMonthDays) {
-            daysText.innerText = i + '\n';
-        }
-    };
-    monthText.innerText = currentMonthName + "\n";
-    yearText.innerText = currentYearName;
+    printDaysInTable()
 }
 
 function currentMonth() {
-    clearDates();
     currentMonthName = month[date.getUTCMonth()][0];
     currentMonthDate = date.getUTCMonth();
     currentYearName = date.getUTCFullYear();
-    checkForLeap()
-    monthText.innerText = currentMonthName + "\n";
-    yearText.innerText = currentYearName;
-    currentMonthDays = month[date.getUTCMonth()][1];
-    for (let i = 1; i <= currentMonthDays; i++) {
-        daysText = document.getElementById(i);
-        daysText.innerText = i;
-        if (i == currentMonthDays) {
-            daysText.innerText = i + '\n';
-        }
-    };
+    printDaysInTable()
 }
 
+function getMonthF() {
+    return currentMonthDate
+}
+
+function getYearF() {
+    return currentYearName
+}
 // set names for months and days
 var date = new Date()
 const month = new Array(12);
@@ -113,8 +101,6 @@ days[3] = ['Wednesday', 'Wed'];
 days[4] = ['Thursday', 'Thu'];
 days[5] = ['Friday', 'Fri'];
 days[6] = ['Saturday', 'Sat'];
-
-const needToGetCleared = [29, 30, 31];
 
 // seting defualt text in index.html
 currentMonth();
