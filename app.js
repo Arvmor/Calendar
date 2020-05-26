@@ -23,9 +23,8 @@ function clearDates() {
 }
 
 function getDayInWeek(date, month, year) {
-    var wDay = new Date(year, month, date);
-    var result = String(wDay).slice(0, 3);
-    return result
+    var wDay = new Date(year, month, date).getDay();
+    return wDay
 }
 
 function nextMonth() {
@@ -81,7 +80,7 @@ function currentMonth() {
     currentMonthDays = month[date.getUTCMonth()][1];
     for (let i = 1; i <= currentMonthDays; i++) {
         daysText = document.getElementById(i);
-        daysText.innerText = i;
+        daysText.innerText = i + wDay;
         if (i == currentMonthDays) {
             daysText.innerText = i + '\n';
         }
