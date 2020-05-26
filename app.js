@@ -4,7 +4,6 @@ const previousBtn = document.getElementById("previousM");
 const monthText = document.getElementById("month");
 const yearText = document.getElementById("year");
 const currentBtn = document.getElementById("currentM");
-
 // functions
 function checkForLeap() {
     if (currentYearName % 4 == 0) {
@@ -24,24 +23,7 @@ function clearDates() {
 
 function getDayInWeek(date, month, year) {
     wDay = new Date(year, month, date).getDay();
-    return wDay
-}
-
-function printDaysInTable() {
-    currentMonthName = month[currentMonthDate][0];
-    checkForLeap()
-    currentMonthDays = month[currentMonthDate][1];
-    clearDates();
-    getDayInWeek(1, currentMonthDate, currentYearName);
-    for (let i = 1; i <= currentMonthDays; i++) {
-        daysText = document.getElementById(i + wDay + 1);
-        daysText.innerText = i;
-        if (i == currentMonthDays) {
-            daysText.innerText = i + '\n';
-        }
-    };
-    monthText.innerText = currentMonthName + "\n";
-    yearText.innerText = currentYearName;
+    return wDay + 1;
 }
 
 function nextMonth() {
@@ -50,7 +32,7 @@ function nextMonth() {
         currentMonthDate = 0;
         currentYearName += 1;
     }
-    printDaysInTable()
+    showMonth();
 }
 
 function previousMonth() {
@@ -59,25 +41,39 @@ function previousMonth() {
         currentMonthDate = 11;
         currentYearName -= 1;
     }
-    printDaysInTable()
+    showMonth();
+}
+
+function showMonth(day=1){
+    yearText.innerText = currentYearName;
+    monthText.innerText = month[currentMonthDate][0];
+    clearDates();
+    var dayamount = [currentMonthDate][1];
+    var startday = getDayInWeek(1, currentMonthDate, currentYearName);
+    for (let t = 1; t <= dayamount; t++) {
+        daybtn = document.getElementById(t + startday);
+        daybtn.innerText = t;
+    }
+    document.getElementById(day + startday).className = "selected";
 }
 
 function currentMonth() {
     currentMonthName = month[date.getUTCMonth()][0];
     currentMonthDate = date.getUTCMonth();
     currentYearName = date.getUTCFullYear();
-    printDaysInTable()
+    showMonth();
 }
 
 function getMonthF() {
-    return currentMonthDate
+    return currentMonthDate;
 }
 
 function getYearF() {
     return currentYearName
 }
+
 // set names for months and days
-var date = new Date()
+const date = new Date();
 const month = new Array(12);
 currentMonthDate = date.getUTCMonth();
 month[0] = ["January", 31];
