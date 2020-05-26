@@ -22,13 +22,13 @@ function clearDates() {
     });
 }
 
-function getDaInWeek(date, month, year) {
-    var wDay = new Date(month, year, date)
+function getDayInWeek(date, month, year) {
+    var wDay = new Date(year, month, date);
     var result = String(wDay).slice(0, 3);
     return result
 }
 
-function NextMonth() {
+function nextMonth() {
     currentMonthDate += 1;
     if (currentMonthDate == 12) {
         currentMonthDate = 0;
@@ -40,16 +40,16 @@ function NextMonth() {
     clearDates();
     for (let i = 1; i <= currentMonthDays; i++) {
         daysText = document.getElementById(i);
-        daysText.innerText = i + getDaInWeek(i, currentMonthDate, currentYearName);
+        daysText.innerText = i;
         if (i == currentMonthDays) {
-            daysText.innerText = i + getDaInWeek(i, currentMonthDate, currentYearName) + '\n';
+            daysText.innerText = i + '\n';
         }
     };
     monthText.innerText = currentMonthName + "\n";
     yearText.innerText = currentYearName;
 }
 
-function PreviousMonth() {
+function previousMonth() {
     currentMonthDate -= 1;
     if (currentMonthDate == -1) {
         currentMonthDate = 11;
@@ -70,7 +70,7 @@ function PreviousMonth() {
     yearText.innerText = currentYearName;
 }
 
-function CurrentMonth() {
+function currentMonth() {
     clearDates();
     currentMonthName = month[date.getUTCMonth()][0];
     currentMonthDate = date.getUTCMonth();
@@ -117,17 +117,17 @@ days[6] = ['Saturday', 'Sat'];
 const needToGetCleared = [29, 30, 31];
 
 // seting defualt text in index.html
-CurrentMonth();
+currentMonth();
 
 // if clicked do something ... 
 if (currentBtn) {
-    currentBtn.addEventListener("click", CurrentMonth);
+    currentBtn.addEventListener("click", currentMonth);
 }
 
 if (nextBtn) {
-    nextBtn.addEventListener("click", NextMonth);
+    nextBtn.addEventListener("click", nextMonth);
 }
 
 if (previousBtn) {
-    previousBtn.addEventListener("click", PreviousMonth);
+    previousBtn.addEventListener("click", previousMonth);
 }
