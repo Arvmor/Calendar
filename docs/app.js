@@ -52,18 +52,21 @@ function currentMonth() {
     showMonth(date.getUTCDate());
 }
 // InterFace function
-function showMonth(day=1){
+function showMonth() {
     yearText.innerText = currentYearName;
     monthText.innerText = month[currentMonthDate][0];
     clearDates();
     var dayamount = month[currentMonthDate][1];
-    var startday = getDayInWeek(1, currentMonthDate, currentYearName);
+    startday = getDayInWeek(1, currentMonthDate, currentYearName);
+    if (startday == 7) {
+        startday -= 7;
+    }
     for (let t = 1; t <= dayamount; t++) {
         daybtn = document.getElementById(t + startday);
         daybtn.innerText = t;
         daybtn.className = "day";
     }
-    document.getElementById(day + startday).className = "selected";
+    document.getElementById(1 + startday).className = "selected";
 }
 
 // set names for months and days
