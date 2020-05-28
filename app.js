@@ -8,9 +8,11 @@ const currentBtn = document.getElementById("currentM");
 function checkForLeap() {
     if (currentYearName % 4 == 0) {
         month[1] = ["February", 29];
+        console.log('1');
     }
     else {
         month[1] = ["February", 28];
+        console.log('2');
     }
 }
 //since every month has a diffrent length we have to clear the rest of remaining dates on html text
@@ -32,6 +34,7 @@ function nextMonth() {
     if (currentMonthDate == 12) {
         currentMonthDate = 0;
         currentYearName += 1;
+        checkForLeap();
     }
     showMonth();
 }
@@ -41,6 +44,7 @@ function previousMonth() {
     if (currentMonthDate == -1) {
         currentMonthDate = 11;
         currentYearName -= 1;
+        checkForLeap();
     }
     showMonth();
 }
@@ -52,18 +56,37 @@ function currentMonth() {
     showMonth(date.getUTCDate());
 }
 // InterFace function
-function showMonth(day=1){
+function showMonth() {
     yearText.innerText = currentYearName;
     monthText.innerText = month[currentMonthDate][0];
     clearDates();
     var dayamount = month[currentMonthDate][1];
-    var startday = getDayInWeek(1, currentMonthDate, currentYearName);
+    startday = getDayInWeek(1, currentMonthDate, currentYearName);
+    if (startday == 7) {
+        startday -= 7;
+    }
     for (let t = 1; t <= dayamount; t++) {
         daybtn = document.getElementById(t + startday);
         daybtn.innerText = t;
         daybtn.className = "day";
     }
-    document.getElementById(day + startday).className = "selected";
+    document.getElementById(1 + startday).className = "selected";
+    var prevmonth;
+    var nextMonth;
+    if(currentMonthDate == 0){
+        prevmonth = month[11][0];
+    }
+    else{
+        prevmonth = month[currentMonthDate - 1][0];
+    }
+    if(currentMonthDate == 11){
+        nextMonth = month[0][0];
+    }
+    else{
+        nextMonth = month[currentMonthDate + 1][0];
+    }
+    document.getElementById("previousM").innerText = prevmonth;
+    document.getElementById("nextM").innerText = nextMonth;
 }
 
 // set names for months and days
