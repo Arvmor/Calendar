@@ -56,7 +56,7 @@ function currentMonth() {
     showMonth(date.getUTCDate());
 }
 // InterFace function
-function showMonth() {
+function showMonth(day=1) {
     yearText.innerText = currentYearName;
     monthText.innerText = month[currentMonthDate][0];
     clearDates();
@@ -70,7 +70,7 @@ function showMonth() {
         daybtn.innerText = t;
         daybtn.className = "day";
     }
-    document.getElementById(1 + startday).className = "selected";
+    document.getElementById(day + startday).className = "selected";
     var prevmonth;
     var nextMonth;
     if(currentMonthDate == 0){
