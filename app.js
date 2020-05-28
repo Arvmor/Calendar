@@ -1,8 +1,7 @@
 // html buttons
 const nextBtn = document.getElementById("nextM");
 const previousBtn = document.getElementById("previousM");
-const monthText = document.getElementById("month");
-const yearText = document.getElementById("year");
+const yearAndMonthtext = document.getElementById("yearAndMonth");
 const currentBtn = document.getElementById("currentM");
 // functions
 function checkForLeap() {
@@ -55,10 +54,9 @@ function currentMonth() {
     currentYearName = date.getUTCFullYear();
     showMonth(date.getUTCDate());
 }
-// InterFace function
+// InterFace functions
 function showMonth(day=1) {
-    yearText.innerText = currentYearName;
-    monthText.innerText = month[currentMonthDate][0];
+    yearAndMonthtext.innerText = currentYearName + "  /  " + month[currentMonthDate][0];
     clearDates();
     var dayamount = month[currentMonthDate][1];
     startday = getDayInWeek(1, currentMonthDate, currentYearName);

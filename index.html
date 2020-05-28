@@ -10,87 +10,78 @@
 
 <body>
     <div class="tablediv">
-        <div>
-            <p id="year"></p>
-        </div>
-        <div>
-            <p id="month"></p>
-        </div>
-        <div>
             <table>
-                <thead>
-                    <tr>
-                        <th><div>Sat</div></th>
-                        <th><div>Sun</div></th>
-                        <th><div>Mon</div></th>
-                        <th><div>Tue</div></th>
-                        <th><div>Wed</div></th>
-                        <th><div>Thu</div></th>
-                        <th><div>Fri</div></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><div id="1"></div></td>
-                        <td><div id="2"></div></td>
-                        <td><div id="3"></div></td>
-                        <td><div id="4"></div></td>
-                        <td><div id="5"></div></td>
-                        <td><div id="6"></div></td>
-                        <td><div id="7"></div></td>
-                    </tr>
-                    <tr>
-                        <td><div id="8"></div></td>
-                        <td><div id="9"></div></td>
-                        <td><div id="10"></div></td>
-                        <td><div id="11"></div></td>
-                        <td><div id="12"></div></td>
-                        <td><div id="13"></div></td>
-                        <td><div id="14"></div></td>
-                    </tr>
-                    <tr>
-                        <td><div id="15"></div></td>
-                        <td><div id="16"></div></td>
-                        <td><div id="17"></div></td>
-                        <td><div id="18"></div></td>
-                        <td><div id="19"></div></td>
-                        <td><div id="20"></div></td>
-                        <td><div id="21"></div></td>
-                    </tr>
-                    <tr>
-                        <td><div id="22"></div></td>
-                        <td><div id="23"></div></td>
-                        <td><div id="24"></div></td>
-                        <td><div id="25"></div></td>
-                        <td><div id="26"></div></td>
-                        <td><div id="27"></div></td>
-                        <td><div id="28"></div></td>
-                    </tr>
-                    <tr>
-                        <td><div id="29"></div></td>
-                        <td><div id="30"></div></td>
-                        <td><div id="31"></div></td>
-                        <td><div id="32"></div></td>
-                        <td><div id="33"></div></td>
-                        <td><div id="34"></div></td>
-                        <td><div id="35"></div></td>
-                    </tr>
-                    <tr>
-                        <td><div id="36"></div></td>
-                        <td><div id="37"></div></td>
-                        <td><div id="38"></div></td>
-                        <td><div id="39"></div></td>
-                        <td><div id="40"></div></td>
-                        <td><div id="41"></div></td>
-                        <td><div id="42"></div></td>
-                    </tr>
-                </tbody>
+                <tr>
+                    <th colspan="7">
+                        <button id="previousM" class="ctrl_prv"></button>
+                        <div id="yearAndMonth" class="yearMonthDiv"></div>
+                        <button id="nextM" class="ctrl_nxt"></button>
+                    </th>
+                </tr>
+                <tr>
+                    <th><div>Sat</div></th>
+                    <th><div>Sun</div></th>
+                    <th><div>Mon</div></th>
+                    <th><div>Tue</div></th>
+                    <th><div>Wed</div></th>
+                    <th><div>Thu</div></th>
+                    <th><div>Fri</div></th>
+                </tr>
+                <tr>
+                    <td><div id="1"></div></td>
+                    <td><div id="2"></div></td>
+                    <td><div id="3"></div></td>
+                    <td><div id="4"></div></td>
+                    <td><div id="5"></div></td>
+                    <td><div id="6"></div></td>
+                    <td><div id="7"></div></td>
+                </tr>
+                <tr>
+                    <td><div id="8"></div></td>
+                    <td><div id="9"></div></td>
+                    <td><div id="10"></div></td>
+                    <td><div id="11"></div></td>
+                    <td><div id="12"></div></td>
+                    <td><div id="13"></div></td>
+                    <td><div id="14"></div></td>
+                </tr>
+                <tr>
+                    <td><div id="15"></div></td>
+                    <td><div id="16"></div></td>
+                    <td><div id="17"></div></td>
+                    <td><div id="18"></div></td>
+                    <td><div id="19"></div></td>
+                    <td><div id="20"></div></td>
+                    <td><div id="21"></div></td>
+                </tr>
+                <tr>
+                    <td><div id="22"></div></td>
+                    <td><div id="23"></div></td>
+                    <td><div id="24"></div></td>
+                    <td><div id="25"></div></td>
+                    <td><div id="26"></div></td>
+                    <td><div id="27"></div></td>
+                    <td><div id="28"></div></td>
+                </tr>
+                <tr>
+                    <td><div id="29"></div></td>
+                    <td><div id="30"></div></td>
+                    <td><div id="31"></div></td>
+                    <td><div id="32"></div></td>
+                    <td><div id="33"></div></td>
+                    <td><div id="34"></div></td>
+                    <td><div id="35"></div></td>
+                </tr>
+                <tr>
+                    <td><div id="36"></div></td>
+                    <td><div id="37"></div></td>
+                    <td><div id="38"></div></td>
+                    <td><div id="39"></div></td>
+                    <td><div id="40"></div></td>
+                    <td><div id="41"></div></td>
+                    <td><div id="42"></div></td>
+                </tr>
             </table>
-        </div>
-        <div>
-            <button id="previousM" class="ctrl_prv">Previous</button>
-            <button id="currentM" class="ctrl_now">Now</button>
-            <button id="nextM" class="ctrl_nxt">Next</button>
         </div>
     </div>
     <script src="app.js"></script>
