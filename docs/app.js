@@ -8,9 +8,11 @@ const currentBtn = document.getElementById("currentM");
 function checkForLeap() {
     if (currentYearName % 4 == 0) {
         month[1] = ["February", 29];
+        console.log('1');
     }
     else {
         month[1] = ["February", 28];
+        console.log('2');
     }
 }
 //since every month has a diffrent length we have to clear the rest of remaining dates on html text
@@ -32,6 +34,7 @@ function nextMonth() {
     if (currentMonthDate == 12) {
         currentMonthDate = 0;
         currentYearName += 1;
+        checkForLeap();
     }
     showMonth();
 }
@@ -41,6 +44,7 @@ function previousMonth() {
     if (currentMonthDate == -1) {
         currentMonthDate = 11;
         currentYearName -= 1;
+        checkForLeap();
     }
     showMonth();
 }
