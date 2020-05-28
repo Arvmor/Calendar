@@ -18,6 +18,7 @@ function clearDates() {
     for (let j = 1; j < 42; j++) {
         daysText = document.getElementById(j);
         daysText.innerText = '';
+        daysText.className = '';
     }
 }
 
@@ -48,7 +49,7 @@ function currentMonth() {
     currentMonthName = month[date.getUTCMonth()][0];
     currentMonthDate = date.getUTCMonth();
     currentYearName = date.getUTCFullYear();
-    showMonth();
+    showMonth(date.getUTCDate());
 }
 // InterFace function
 function showMonth(day=1){
@@ -60,6 +61,7 @@ function showMonth(day=1){
     for (let t = 1; t <= dayamount; t++) {
         daybtn = document.getElementById(t + startday);
         daybtn.innerText = t;
+        daybtn.className = "day";
     }
     document.getElementById(day + startday).className = "selected";
 }
