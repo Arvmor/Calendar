@@ -46,16 +46,31 @@ table{
     margin-top: 4%;
 }
 
+.ctrl_prv, .ctrl_nxt, .ctrl_now{
+    background-color: rgba(145, 255, 0, 0.5);
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    height: 1.7vw;
+    width: 5.5vw;
+}
+
 .ctrl_prv{
-    position: fixed;
-    left: 3vw;
-    top: 3vw;
+    position: relative;
+    
 }
 
 .ctrl_nxt{
-    position: fixed;
-    right: 3vw;
-    top: 3vw;
+    position: relative;
+    
+}
+
+.yearMonth{
+    position: relative;
+    padding: 1em 0;
+    font-size: larger;
 }
 
 th{
