@@ -11,7 +11,7 @@ body{
 
 .tablediv{
     position: fixed;
-    top: 3%;
+    top: 1.5%;
     left: 50%;
     -webkit-transform: translate(-50%, 0%);
     transform: translate(-50%, 0%);
@@ -25,12 +25,12 @@ table{
 .day, .selected{
     text-align: center;
     vertical-align: middle;
-    line-height: 5.5vw; 
-    height: 5.5vw;
-    width: 5.5vw;
+    line-height: 5.1vw; 
+    height: 5.1vw;
+    width: 5.1vw;
     font-family: calanderNum;
     font-weight: bold;
-    font-size: large;
+    font-size: 1.5vw;
 }
 
 .day{
@@ -42,7 +42,6 @@ table{
 }
 
 .yearMonthDiv{
-    font-size: x-large;
     margin-top: 4%;
 }
 
@@ -53,8 +52,8 @@ table{
     cursor:pointer;
     overflow: hidden;
     outline:none;
-    height: 1.7vw;
-    width: 5.5vw;
+    height: 30px;
+    width: 6vw;
 }
 
 .ctrl_prv{
@@ -69,14 +68,14 @@ table{
 
 .yearMonth{
     position: relative;
-    padding: 1em 0;
-    font-size: larger;
+    padding: 0.8em 0;
+    font-size: 2.3vw;
 }
 
 th{
     background-color: rgba(122, 216, 0, 0.3);
     border: rgba(122, 216, 0, 0.3);
-    font-size: large;
-    height: 5.5vw;
-    width: 5.5vw;
+    font-size: 1.2vw;
+    height: 5.1vw;
+    width: 5.1vw;
 }
