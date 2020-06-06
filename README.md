@@ -1,6 +1,6 @@
 # Calendar
  📅with JS
-# Beta Version
+# Final Version
 <a href="https://arvmor.github.io/Calendar/">Online Preview</a>
 # ToDo
 - [x] Add Years
