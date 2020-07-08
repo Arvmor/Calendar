@@ -3,6 +3,7 @@ const nextBtn = document.getElementById("nextM");
 const previousBtn = document.getElementById("previousM");
 const yearAndMonthtext = document.getElementById("yearAndMonth");
 const currentBtn = document.getElementById("currentM");
+
 // functions
 function checkForLeap() {
     if (currentYearName % 4 == 0) {
@@ -14,6 +15,7 @@ function checkForLeap() {
         console.log('2');
     }
 }
+
 //since every month has a diffrent length we have to clear the rest of remaining dates on html text
 function clearDates() {
     for (let j = 1; j < 42; j++) {
@@ -28,6 +30,7 @@ function getDayInWeek(date, month, year) {
     return wDay + 1;
 }
 
+// Next Month Function
 function nextMonth() {
     currentMonthDate += 1;
     if (currentMonthDate == 12) {
@@ -38,6 +41,7 @@ function nextMonth() {
     showMonth();
 }
 
+// Previous Month Function
 function previousMonth() {
     currentMonthDate -= 1;
     if (currentMonthDate == -1) {
@@ -48,12 +52,14 @@ function previousMonth() {
     showMonth();
 }
 
+// Current Month Function
 function currentMonth() {
     currentMonthName = month[date.getUTCMonth()][0];
     currentMonthDate = date.getUTCMonth();
     currentYearName = date.getUTCFullYear();
     showMonth(date.getUTCDate());
 }
+
 // InterFace functions
 function showMonth(day=1) {
     yearAndMonthtext.innerText = currentYearName + "  /  " + month[currentMonthDate][0];
